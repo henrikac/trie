@@ -2,5 +2,3 @@
 
 Author: Henrik Abel Christensen
 """
-class Trie:
-    pass
