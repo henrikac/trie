@@ -51,10 +51,11 @@ class TestTrie(unittest.TestCase):
         trie.insert('builder')
         trie.insert('moose')
         trie.remove('build')
+        trie.remove('moose')
         self.assertFalse(trie.contains('build'))
         self.assertTrue(trie.contains('building'))
         self.assertTrue(trie.contains('builder'))
-        self.assertTrue(trie.contains('moose'))
+        self.assertFalse(trie.contains('moose'))
 
 
 if __name__ == '__main__':

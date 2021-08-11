@@ -84,6 +84,7 @@ class Trie:
         """
         if word == '':
             raise ValueError(f'undefined word: {word}')
+
         current_node: Node = self.__root
         nodes: List[Node] = list()
 
@@ -98,13 +99,10 @@ class Trie:
         if len(current_node) > 0:
             return word
 
-        prev_node = current_node
+        i = 1
         for node in nodes:
-            if len(node) > 1:
+            node_child = node.remove_child(word[-i])
+            if node_child is None:
                 break
-            prev_node = Node()
-            prev_node = node
-
-        if len(prev_node) < 2:
-            self.__root = Node()
+            i += 1
         return word

@@ -80,3 +80,31 @@ class Node:
             The given child if in the node, otherwise None.
         """
         return self.__children.get(child)
+
+    def remove_child(self, child: str) -> Union[Node, None]:
+        """Removes a child from the node.
+
+        Parameters
+        ----------
+        child : str
+            The child to remove.
+
+        Returns
+        -------
+        Node
+            The removed child node if removed successfully, otherwise None.
+
+        Raises
+        ------
+        ValueError
+            If the given child is an empty string.
+        """
+        if child == '':
+            raise ValueError(f'undefined child: {child}')
+        child_to_remove = self.__children.get(child)
+        if child_to_remove is None:
+            return None
+        if len(child_to_remove) == 0:
+            del self.__children[child]
+            return child_to_remove
+        return None
