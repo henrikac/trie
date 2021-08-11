@@ -39,9 +39,11 @@ class TestTrie(unittest.TestCase):
     def test_remove_word(self):
         """Test that words can be removed from Trie."""
         trie = Trie()
-        trie.insert('word')
-        trie.remove('word')
-        self.assertTrue(trie.is_empty())
+        trie.insert('build')
+        trie.insert('building')
+        trie.remove('building')
+        self.assertFalse(trie.contains('building'))
+        self.assertTrue(trie.contains('build'))
 
     def test_remove_word_without_messing_up_other_words(self):
         """Test that removing a word does not mess up other words."""
