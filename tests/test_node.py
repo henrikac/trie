@@ -54,28 +54,6 @@ class TestNode(unittest.TestCase):
         with self.assertRaises(ValueError):
             root.add_child('hi', True)
 
-    def test_remove_child(self):
-        """Test that node can remove child nodes."""
-        root = Node()
-        root.add_child('a', True)
-        removed_child = root.remove_child('a')
-        self.assertEqual(len(root), 0)
-        self.assertIsNotNone(removed_child)
-
-    def test_remove_child_returns_none_if_unknown_child(self):
-        """Test that remove child returns None if given unknown child."""
-        root = Node()
-        removed_child = root.remove_child('a')
-        self.assertIsNone(removed_child)
-
-    def test_remove_child_raises_value_error_if_child_is_empty_string(self):
-        """Test that remove child raises a ValueError
-        if the given child is an empty string.
-        """
-        root = Node()
-        with self.assertRaises(ValueError):
-            root.remove_child('')
-
 
 if __name__ == '__main__':
     unittest.main()
