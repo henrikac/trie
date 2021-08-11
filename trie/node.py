@@ -102,7 +102,7 @@ class Node:
         if child == '':
             raise ValueError(f'undefined child: {child}')
         child_to_remove = self.__children.get(child)
-        if child_to_remove is None:
+        if child_to_remove is None or child_to_remove.is_end:
             return None
         if len(child_to_remove) == 0:
             del self.__children[child]
